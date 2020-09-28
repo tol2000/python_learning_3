@@ -2,15 +2,36 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import fib
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+8 to toggle the breakpoint.
+def genfac(n):
+    x = 1
+    res = 1
+    while x <= n:
+        res = res * x
+        yield res
+        x += 1
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def fac(n):
+    res = 0
+    if n >= 2:
+        x = 1
+        g = genfac(n)
+        while x <= n:
+            res = next(g)
+            x += 1
+    elif n == 1:
+        res = 1
+    return res
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+print('Hi!)')
+
+print(fib.fib_list(11))
+print(fib.fib(6))
+
+n = 10
+
+print(f"factorial({n}) == {fac(n)}")
