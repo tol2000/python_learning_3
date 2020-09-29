@@ -30,7 +30,7 @@ def fac(n):
 print('Hi!)')
 
 print(fib.fib_list(11))
-print(fib.fib(6))
+print(fib.fib_bad(6))
 
 n = 10
 
