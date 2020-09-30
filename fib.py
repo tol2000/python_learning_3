@@ -1,3 +1,6 @@
+from functools import lru_cache
+
+
 def fib_list(n):
     result = []
     a, b = 0, 1
@@ -10,6 +13,7 @@ def fib_list(n):
 fib_calls = 0
 
 
+@lru_cache(maxsize=1000)
 def fib_bad(n, first_call=True):
     global fib_calls
     if first_call:
@@ -40,7 +44,7 @@ def main():
     import sys
     args = sys.argv[1:]
     print(f"Params: {sys.argv[1:]}")
-    a, b = 6, 100
+    a, b = 6, 300
     if len(args) == 2:
         if not(args[0].isdigit() and args[1].isdigit()):
             print("param values are not valid!\nUsing defaults...")
@@ -54,7 +58,7 @@ def main():
 
     print(f"fib_list({a}) = {fib_list(a)}")
     print(f"fib({b}) = {fib(b)[0]}, fib calls: {fib_calls}")
-    # print(f"fib_bad({b}) = {fib_bad(b)}, fib_bad calls: {fib_calls}")
+    print(f"fib_bad({b}) = {fib_bad(b)}, fib_bad calls: {fib_calls}, fib_bad cache info: {fib_bad.cache_info()}")
 
 
 if __name__ == '__main__':
