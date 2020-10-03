@@ -2,10 +2,11 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-import fib
+from fib import fib_list
+from fib import fib_bad
 
 
-def genfac(n):
+def gen_fac(n):
     x = 1
     res = 1
     while x <= n:
@@ -18,7 +19,7 @@ def fac(n):
     res = 0
     if n >= 2:
         x = 1
-        g = genfac(n)
+        g = gen_fac(n)
         while x <= n:
             res = next(g)
             x += 1
@@ -29,9 +30,9 @@ def fac(n):
 
 print('Hi!)')
 
-print(fib.fib_list(11))
-print(fib.fib_bad(6))
+print(f"main fib_list: {fib_list(11)}")
+print(f"main fib_bad: {fib_bad(6)}")
 
-n = 10
-
-print(f"factorial({n}) == {fac(n)}")
+gn = 100
+f = fac(gn)
+print(f"factorial({gn}) == {f}, result length == {len(str(f))}")

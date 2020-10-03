@@ -62,4 +62,7 @@ def main():
 
 
 if __name__ == '__main__':
+    print("Calling as standalone")
     main()
+else:
+    print("Importing package...")
