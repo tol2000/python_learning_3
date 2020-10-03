@@ -6,7 +6,7 @@ class Point(object):
 
     def add(self, point: str):
         if not isinstance(point, Point):
-            raise TypeError('Please provide Point instance')
+            raise TypeError('Not Point instance')
         return Point(self.x + point.x, self.y + point.y)
 
     def __str__(self):
@@ -22,4 +22,5 @@ p2 = Point(5, -7)
 
 l = [1, 2, 3]
 
+print(p.add(l))
 print(p.add(p2))

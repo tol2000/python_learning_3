@@ -1,9 +1,11 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import logging
 from fib import fib_list
 from fib import fib_bad
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(filename)s [LINE:%(lineno)-10d] # %(levelname)-8s [%(asctime)s] %(message)s"
+)
 
 
 def gen_fac(n):
@@ -28,10 +30,10 @@ def fac(n):
     return res
 
 
-print('Hi!)')
+logging.info('Hi!)')
 
-print(f"main fib_list: {fib_list(11)}")
-print(f"main fib_bad: {fib_bad(6)}")
+logging.info(f"main fib_list: {fib_list(11)}")
+logging.info(f"main fib_bad: {fib_bad(6)}")
 
 gn = 100
 f = fac(gn)

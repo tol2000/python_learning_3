@@ -1,3 +1,4 @@
+import logging
 from functools import lru_cache
 
 
@@ -43,26 +44,29 @@ def fib(n, first_call=True):
 def main():
     import sys
     args = sys.argv[1:]
-    print(f"Params: {sys.argv[1:]}")
+    logging.info(f"Params: {sys.argv[1:]}")
     a, b = 6, 300
     if len(args) == 2:
         if not(args[0].isdigit() and args[1].isdigit()):
-            print("param values are not valid!\nUsing defaults...")
+            logging.info(f"param values are not valid! Using defaults: {a, b}")
         else:
             a, b = args
             a = int(a)
             b = int(b)
     else:
-        print("params count are not valid!\nUsing defaults...")
-    print(a, b)
+        logging.info(f"params count are not valid! Using defaults: {a, b}")
 
-    print(f"fib_list({a}) = {fib_list(a)}")
-    print(f"fib({b}) = {fib(b)[0]}, fib calls: {fib_calls}")
-    print(f"fib_bad({b}) = {fib_bad(b)}, fib_bad calls: {fib_calls}, fib_bad cache info: {fib_bad.cache_info()}")
+    logging.info(f"fib_list({a}) = {fib_list(a)}")
+    logging.info(f"fib({b}) = {fib(b)[0]}, fib calls: {fib_calls}")
+    logging.info(f"fib_bad({b}) = {fib_bad(b)}, fib_bad calls: {fib_calls}, fib_bad cache info: {fib_bad.cache_info()}")
 
 
 if __name__ == '__main__':
-    print("Calling as standalone")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(filename)s [LINE:%(lineno)-10d] # %(levelname)-8s [%(asctime)s] %(message)s"
+    )
+    logging.info("Calling as standalone")
     main()
 else:
     print("Importing package...")
