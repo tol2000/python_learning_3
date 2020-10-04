@@ -1,6 +1,7 @@
 import logging
-from fib import fib_list
-from fib import fib_bad
+# from fib import fib_list
+# from fib import fib_bad
+import fib
 
 logging.basicConfig(
     level=logging.INFO,
@@ -32,8 +33,8 @@ def fac(n):
 
 logging.info('Hi!)')
 
-logging.info(f"main fib_list: {fib_list(11)}")
-logging.info(f"main fib_bad: {fib_bad(6)}")
+logging.info(f"main fib_list: {fib.fib_list(11)}")
+logging.info(f"main fib_bad: {fib.fib_bad(6)}")
 
 gn = 100
 f = fac(gn)
