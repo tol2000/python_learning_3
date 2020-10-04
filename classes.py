@@ -42,4 +42,5 @@ try:
 except TypeError:
     logging.exception("Exception")
 
-(p + p2).self_print()
+p3 = p + p2
+p3.self_print()
